@@ -31,8 +31,13 @@
         }
         
         /* When sidebar is expanded, shift main content */
-        .sidebar-expanded + .main-content {
-            margin-left: 260px;
+        .sidebar-expanded ~ .main-content {
+            margin-left: 260px !important;
+        }
+        
+        /* Content shift class for JS */
+        .content-shifted {
+            margin-left: 260px !important;
         }
         
         /* Sidebar slide functionality for both mobile and desktop */
