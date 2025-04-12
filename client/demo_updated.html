@@ -695,7 +695,7 @@
                 const rows = document.querySelectorAll('tbody tr');
                 
                 rows.forEach(row => {
-                    const statusCell = row.querySelector('td:nth-child(4)');
+                    const statusCell = row.querySelector('td:nth-child(3)');  // Updated index after removing Reason column
                     const statusText = statusCell.textContent.trim().toLowerCase();
                     
                     if (filterType === 'all') {
@@ -757,9 +757,12 @@
                 
                 document.body.appendChild(modal);
                 
-                // Close modal functionality
-                modal.querySelector('.close-modal').addEventListener('click', () => {
-                    document.body.removeChild(modal);
+                // Close modal functionality for all close-modal elements (X button and OK button)
+                const closeButtons = modal.querySelectorAll('.close-modal');
+                closeButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.body.removeChild(modal);
+                    });
                 });
                 
                 // Close modal when clicking outside
